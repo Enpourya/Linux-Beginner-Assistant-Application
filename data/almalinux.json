@@ -1,0 +1,202 @@
+{
+  "distribution": "AlmaLinux",
+  "categories": [
+    {
+      "name": "File Management",
+      "tasks": [
+        {
+          "title": "List Files",
+          "description": "Display files and directories in the current directory with detailed information.",
+          "command": "ls -la",
+          "notes": "Shows hidden files (starting with .) and displays permissions, owner, size, and modification date."
+        },
+        {
+          "title": "Copy Files",
+          "description": "Copy files or directories from source to destination.",
+          "command": "cp -r source_path destination_path",
+          "notes": "The -r option is required for copying directories recursively."
+        },
+        {
+          "title": "Move Files",
+          "description": "Move or rename files and directories.",
+          "command": "mv source_path destination_path",
+          "notes": "Can be used for both moving and renaming files."
+        },
+        {
+          "title": "Delete Files",
+          "description": "Remove files or directories.",
+          "command": "rm -rf path_to_delete",
+          "notes": "WARNING: The -rf options force removal without confirmation. Use with caution!"
+        },
+        {
+          "title": "Create Directories",
+          "description": "Create new directories including parent directories if needed.",
+          "command": "mkdir -p /path/to/new/directory",
+          "notes": "The -p option creates parent directories as needed."
+        }
+      ]
+    },
+    {
+      "name": "Package Management",
+      "tasks": [
+        {
+          "title": "Install Software",
+          "description": "Install new software packages using DNF.",
+          "command": "sudo dnf install package_name",
+          "notes": "AlmaLinux uses DNF package manager, fully compatible with RHEL packages."
+        },
+        {
+          "title": "Remove Software",
+          "description": "Remove installed software packages.",
+          "command": "sudo dnf remove package_name",
+          "notes": "This removes the package but keeps configuration files."
+        },
+        {
+          "title": "Update Packages",
+          "description": "Update all installed packages to their latest versions.",
+          "command": "sudo dnf update",
+          "notes": "DNF handles dependencies automatically and shows what will be updated."
+        },
+        {
+          "title": "Search Packages",
+          "description": "Search for packages by name or description.",
+          "command": "dnf search keyword",
+          "notes": "Searches across all enabled repositories for matching packages."
+        },
+        {
+          "title": "List Available Updates",
+          "description": "Check for available package updates without installing.",
+          "command": "dnf check-update",
+          "notes": "Shows list of packages that have updates available in repositories."
+        }
+      ]
+    },
+    {
+      "name": "User Management",
+      "tasks": [
+        {
+          "title": "Create User",
+          "description": "Create a new user account on the system.",
+          "command": "sudo useradd -m username",
+          "notes": "The -m option creates the user's home directory. Then set password with 'sudo passwd username'."
+        },
+        {
+          "title": "Delete User",
+          "description": "Remove a user account from the system.",
+          "command": "sudo userdel -r username",
+          "notes": "The -r option removes the user's home directory and mail spool."
+        },
+        {
+          "title": "Change Password",
+          "description": "Change password for current or specified user.",
+          "command": "passwd",
+          "notes": "Use 'sudo passwd username' to change another user's password."
+        },
+        {
+          "title": "View Users",
+          "description": "Display list of all users on the system.",
+          "command": "cat /etc/passwd",
+          "notes": "Shows system and regular users. For human users, look for /home/ in the path."
+        }
+      ]
+    },
+    {
+      "name": "System Information",
+      "tasks": [
+        {
+          "title": "View CPU Information",
+          "description": "Display detailed information about the CPU.",
+          "command": "lscpu",
+          "notes": "Shows architecture, cores, threads, model name, and more."
+        },
+        {
+          "title": "View Memory Usage",
+          "description": "Display current memory (RAM) usage statistics.",
+          "command": "free -h",
+          "notes": "The -h option shows sizes in human-readable format (GB, MB)."
+        },
+        {
+          "title": "View Disk Usage",
+          "description": "Display disk space usage for all mounted filesystems.",
+          "command": "df -h",
+          "notes": "Shows used and available space. Use 'du -sh *' to see usage per directory."
+        },
+        {
+          "title": "View OS Version",
+          "description": "Display the AlmaLinux operating system version and details.",
+          "command": "cat /etc/almalinux-release",
+          "notes": "Also try 'hostnamectl' for comprehensive system information including kernel version."
+        }
+      ]
+    },
+    {
+      "name": "Network",
+      "tasks": [
+        {
+          "title": "Show IP Address",
+          "description": "Display current IP address configuration.",
+          "command": "ip addr show",
+          "notes": "Look for 'inet' lines to find IPv4 addresses."
+        },
+        {
+          "title": "Test Connectivity",
+          "description": "Test network connectivity to a host.",
+          "command": "ping -c 4 google.com",
+          "notes": "The -c option limits the number of ping attempts."
+        },
+        {
+          "title": "Display Network Interfaces",
+          "description": "Show all network interfaces and their status.",
+          "command": "nmcli device show",
+          "notes": "Provides detailed information about network devices and connections."
+        },
+        {
+          "title": "Check Open Ports",
+          "description": "Display list of open ports and listening services.",
+          "command": "ss -tuln",
+          "notes": "Shows TCP (-t) and UDP (-u) listening (-l) ports with numeric (-n) output."
+        }
+      ]
+    },
+    {
+      "name": "Process Management",
+      "tasks": [
+        {
+          "title": "View Running Processes",
+          "description": "Display all running processes.",
+          "command": "ps aux",
+          "notes": "Shows processes from all users with detailed information."
+        },
+        {
+          "title": "Kill a Process",
+          "description": "Terminate a process by its PID.",
+          "command": "kill -9 PID",
+          "notes": "The -9 signal forces immediate termination. Use with caution."
+        },
+        {
+          "title": "Monitor System Resources",
+          "description": "Interactive process viewer and system monitor.",
+          "command": "top",
+          "notes": "AlmaLinux includes top by default. Press 'M' to sort by memory usage, 'P' for CPU."
+        }
+      ]
+    },
+    {
+      "name": "Permissions",
+      "tasks": [
+        {
+          "title": "Change File Permissions",
+          "description": "Modify read, write, and execute permissions for files and directories.",
+          "command": "chmod 755 filename",
+          "notes": "755 gives owner full permissions, group and others read/execute. Use -R for recursive."
+        },
+        {
+          "title": "Change Ownership",
+          "description": "Change the owner and group of files and directories.",
+          "command": "chown user:group filename",
+          "notes": "Use -R option for recursive changes in directories."
+        }
+      ]
+    }
+  ]
+}
